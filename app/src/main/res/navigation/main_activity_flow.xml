@@ -7,17 +7,17 @@
 
     <fragment
         android:id="@+id/homeScreen"
-        android:name="com.shrikissan.user.HomeScreen"
+        android:name="com.shrikissan.user.fragments.HomeScreen"
         android:label="fragment_home_screen"
         tools:layout="@layout/fragment_home_screen" />
     <fragment
         android:id="@+id/cartScreen"
-        android:name="com.shrikissan.user.CartScreen"
+        android:name="com.shrikissan.user.fragments.CartScreen"
         android:label="fragment_cart_screen"
         tools:layout="@layout/fragment_cart_screen" />
     <fragment
         android:id="@+id/moreScreen"
-        android:name="com.shrikissan.user.MoreScreen"
+        android:name="com.shrikissan.user.fragments.MoreScreen"
         android:label="fragment_more_screen"
         tools:layout="@layout/fragment_more_screen" />
 </navigation>

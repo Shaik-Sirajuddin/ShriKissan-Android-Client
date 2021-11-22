@@ -1,4 +1,4 @@
-package com.shrikissan.user
+package com.shrikissan.user.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import com.mancj.materialsearchbar.MaterialSearchBar
 import com.shrikissan.user.databinding.FragmentHomeScreenBinding
-import android.view.Gravity
 import com.shrikissan.user.models.showToast
 
 

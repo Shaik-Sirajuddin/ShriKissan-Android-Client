@@ -4,25 +4,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeScreen">
+    tools:context=".fragments.HomeScreen">
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        app:cardCornerRadius="7dp"
-        app:strokeWidth="2dp"
-        android:layout_margin="2dp"
-        app:strokeColor="@color/grey"
+        android:backgroundTint="@color/greenDark"
         android:layout_height="wrap_content">
-        <com.mancj.materialsearchbar.MaterialSearchBar
-            style="@style/MaterialSearchBarLight"
-            android:layout_margin="3dp"
-            android:animateLayoutChanges="false"
-            app:mt_speechMode="true"
-            app:mt_placeholder="Search here"
-            app:mt_hint="Search here"
-            app:mt_maxSuggestionsCount="10"
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/searchBar" />
+            android:layout_margin="10dp"
+            app:strokeColor="@color/grey"
+            app:strokeWidth="1dp"
+            app:cardCornerRadius="7dp"
+            android:layout_height="wrap_content">
+            <com.mancj.materialsearchbar.MaterialSearchBar
+                style="@style/MaterialSearchBarLight"
+                android:animateLayoutChanges="false"
+                app:mt_speechMode="true"
+                app:mt_placeholder="Search here"
+                app:mt_hint="Search here"
+                app:mt_maxSuggestionsCount="10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/searchBar" />
+        </com.google.android.material.card.MaterialCardView>
     </com.google.android.material.card.MaterialCardView>
 
 </LinearLayout>
