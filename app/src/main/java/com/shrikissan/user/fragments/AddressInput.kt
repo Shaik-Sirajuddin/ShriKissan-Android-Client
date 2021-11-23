@@ -27,7 +27,6 @@ class AddressInput : Fragment(), AdapterView.OnItemSelectedListener {
 
     override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
         val text = p0?.getItemAtPosition(p2).toString()
-
     }
 
     override fun onNothingSelected(p0: AdapterView<*>?) {

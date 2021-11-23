@@ -17,6 +17,7 @@ class CartScreen : Fragment() {
         savedInstanceState: Bundle?,
     ): View {
         binding = FragmentCartScreenBinding.inflate(inflater)
+
         return binding.root
     }
 }

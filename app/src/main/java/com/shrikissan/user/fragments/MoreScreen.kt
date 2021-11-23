@@ -17,7 +17,7 @@ class MoreScreen : Fragment() {
         savedInstanceState: Bundle?,
     ): View {
         binding = FragmentMoreScreenBinding.inflate(inflater)
-        binding.changeAddress.setOnClickListener {
+        binding.changeAddress.setOnClickListener{
 
         }
         return binding.root

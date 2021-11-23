@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_screen_flow"
+    app:startDestination="@id/categoryScreen">
+
+    <fragment
+        android:id="@+id/categoryScreen"
+        android:name="com.shrikissan.user.fragments.CategoryScreen"
+        android:label="fragment_category_screen"
+        tools:layout="@layout/fragment_category_screen" >
+        <action
+            android:id="@+id/navigateToProductScreen"
+            app:destination="@id/productsScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/productsScreen"
+        android:name="com.shrikissan.user.fragments.ProductsScreen"
+        android:label="fragment_products_screen"
+        tools:layout="@layout/fragment_products_screen">
+      <argument
+          android:name="category"
+          app:argType="string"/>
+        <argument
+            android:name="isProduct"
+            app:argType="boolean"/>
+        <argument
+            android:name="productName"
+            app:argType="string"/>
+        <action
+            android:id="@+id/action_productsScreen_to_productDetailsScreen"
+            app:destination="@id/productDetailsScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/productDetailsScreen"
+        android:name="com.shrikissan.user.ProductDetailsScreen"
+        android:label="fragment_product_details_screen"
+        tools:layout="@layout/fragment_product_details_screen" >
+        <action
+            android:id="@+id/action_productDetailsScreen_to_productsScreen"
+            app:destination="@id/productsScreen" />
+    </fragment>
+</navigation>

@@ -5,8 +5,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.mancj.materialsearchbar.MaterialSearchBar
+import com.shrikissan.user.R
+import com.shrikissan.user.adapters.CategoryAdapter
 import com.shrikissan.user.databinding.FragmentHomeScreenBinding
+import com.shrikissan.user.models.CategoryItem
+import com.shrikissan.user.models.isConnected
 import com.shrikissan.user.models.showToast
 
 
@@ -25,9 +34,10 @@ class HomeScreen : Fragment(), MaterialSearchBar.OnSearchActionListener {
     override fun onSearchStateChanged(enabled: Boolean) {
 
     }
-
     override fun onSearchConfirmed(text: CharSequence?) {
-           requireActivity().showToast(text.toString())
+          val bundle = bundleOf("isProduct" to true, "productName" to text.toString())
+          val controller = Navigation.findNavController(requireActivity(),R.id.mainScreenContainer)
+          controller.navigate(R.id.navigateToProductScreen,bundle)
     }
 
     override fun onButtonClicked(buttonCode: Int) {
