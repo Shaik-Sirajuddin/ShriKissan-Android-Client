@@ -25,7 +25,7 @@ class ProductsAdapter(private val context: Context, private val list:ArrayList<P
     override fun onBindViewHolder(holder: ProductsViewHolder, pos: Int) {
          holder.rating.rating = list[pos].rating
          holder.name.text = list[pos].name
-         holder.price.text = context.getString(R.string.rupee) + list[pos].price.toString()
+         holder.price.text = context.getString(R.string.rupee) + list[pos].product_cost.toString()
          Glide.with(context)
              .load(list[pos].image)
              .into(holder.image)

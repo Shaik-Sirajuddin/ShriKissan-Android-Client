@@ -24,7 +24,7 @@ class CategoryAdapter(private val context:Context,private val list:ArrayList<Cat
     override fun onBindViewHolder(holder: CategoryViewHolder, pos: Int) {
        holder.name.text = list[pos].name
         Glide.with(context)
-            .load(list[pos])
+            .load(list[pos].imageUrl)
             .into(holder.image)
     }
 

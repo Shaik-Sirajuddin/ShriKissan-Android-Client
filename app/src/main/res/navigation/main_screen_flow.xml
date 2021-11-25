@@ -29,16 +29,19 @@
             android:name="productName"
             app:argType="string"/>
         <action
-            android:id="@+id/action_productsScreen_to_productDetailsScreen"
+            android:id="@+id/navigateToProductDetailScreen"
             app:destination="@id/productDetailsScreen" />
     </fragment>
     <fragment
         android:id="@+id/productDetailsScreen"
-        android:name="com.shrikissan.user.ProductDetailsScreen"
+        android:name="com.shrikissan.user.fragments.ProductDetailsScreen"
         android:label="fragment_product_details_screen"
         tools:layout="@layout/fragment_product_details_screen" >
         <action
-            android:id="@+id/action_productDetailsScreen_to_productsScreen"
+            android:id="@+id/detailToProduct"
             app:destination="@id/productsScreen" />
+        <argument
+            android:name="product"
+            app:argType="string"/>
     </fragment>
 </navigation>

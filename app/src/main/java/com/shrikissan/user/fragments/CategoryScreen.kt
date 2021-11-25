@@ -13,12 +13,14 @@ import com.shrikissan.user.adapters.CategoryAdapter
 import com.shrikissan.user.databinding.FragmentCategoryScreenBinding
 import com.shrikissan.user.models.CategoryItem
 import com.shrikissan.user.models.isConnected
+import com.shrikissan.user.network.Repository
 
 class CategoryScreen : Fragment() {
     private lateinit var binding:FragmentCategoryScreenBinding
     private lateinit var adapter: CategoryAdapter
     private val list = ArrayList<CategoryItem>()
     private lateinit var view1:View
+    private lateinit var repository: Repository
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
@@ -28,6 +30,7 @@ class CategoryScreen : Fragment() {
             val bundle = bundleOf("category" to list[it].id)
             Navigation.findNavController(binding.root).navigate(R.id.navigateToProductScreen,bundle)
         }
+        repository = Repository(requireContext())
         binding.recyclerView.layoutManager = GridLayoutManager(requireContext(),2)
         binding.recyclerView.adapter = adapter
         view1 = binding.root
@@ -47,7 +50,12 @@ class CategoryScreen : Fragment() {
         loadCategories()
     }
     private fun loadCategories(){
-
+        repository.getCategories {
+            list.clear()
+            list.addAll(it)
+            adapter.notifyDataSetChanged()
+            binding.progressBar.visibility = View.GONE
+        }
     }
 
 }

@@ -6,25 +6,34 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
+import com.shrikissan.user.R
 import com.shrikissan.user.adapters.ProductsAdapter
 import com.shrikissan.user.databinding.FragmentProductsScreenBinding
 import com.shrikissan.user.models.Product
+import com.shrikissan.user.network.Repository
+import kotlinx.serialization.encodeToString
+import kotlinx.serialization.json.Json
 
 
 class ProductsScreen : Fragment() {
     private lateinit var binding: FragmentProductsScreenBinding
     private lateinit var adapter: ProductsAdapter
     private val list = ArrayList<Product>()
-
+    private lateinit var repository: Repository
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
 
         adapter = ProductsAdapter(requireContext(),list){
-
+            val product = Json.encodeToString(list[it])
+            val bundle = bundleOf("product" to product)
+            Navigation.findNavController(binding.root).navigate(R.id.navigateToProductDetailScreen,bundle)
         }
+        repository = Repository(requireContext())
         binding = FragmentProductsScreenBinding.inflate(inflater)
         binding.productRecycle.adapter = adapter
         binding.productRecycle.layoutManager = GridLayoutManager(requireContext(),2)
@@ -45,10 +54,18 @@ class ProductsScreen : Fragment() {
         Log.d("is",isProduct.toString()+"k")
     }
 
-    fun loadCategoryProducts(category:String){
-
+    private fun loadCategoryProducts(category:String){
+        repository.getProductsOfACategory{
+            list.clear()
+            list.addAll(it)
+            adapter.notifyDataSetChanged()
+        }
     }
-    fun searchAndLoadProducts(name:String){
-
+    private fun searchAndLoadProducts(name:String){
+         repository.getProductsByName(name){
+             list.clear()
+             list.addAll(it)
+             adapter.notifyDataSetChanged()
+         }
     }
 }

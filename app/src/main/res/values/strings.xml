@@ -14,6 +14,9 @@
     <string name="browse_categories">Browse Categories</string>
     <string name="buy_now">Buy Now</string>
     <string name="add_to_cart">Add to cart</string>
+    <string name="add_a_new_address">Add a new address</string>
+    <string name="full_name">Full name</string>
+    <string name="mobile_number">Mobile number</string>
     <string-array name="states">
         <item>Andhra Pradesh</item>
         <item>Arunachal Pradesh</item>
