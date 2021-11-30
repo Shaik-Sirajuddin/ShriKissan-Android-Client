@@ -51,10 +51,13 @@ class CategoryScreen : Fragment() {
     }
     private fun loadCategories(){
         repository.getCategories {
-            list.clear()
-            list.addAll(it)
-            adapter.notifyDataSetChanged()
+            if(it!=null){
+                list.clear()
+                list.addAll(it)
+                adapter.notifyDataSetChanged()
+            }
             binding.progressBar.visibility = View.GONE
+            binding.noNetwork.visibility = View.GONE
         }
     }
 

@@ -35,9 +35,14 @@ class HomeScreen : Fragment(), MaterialSearchBar.OnSearchActionListener {
 
     }
     override fun onSearchConfirmed(text: CharSequence?) {
-          val bundle = bundleOf("isProduct" to true, "productName" to text.toString())
-          val controller = Navigation.findNavController(requireActivity(),R.id.mainScreenContainer)
-          controller.navigate(R.id.navigateToProductScreen,bundle)
+         try{
+             val bundle = bundleOf("isProduct" to true, "productName" to text.toString())
+             val controller = Navigation.findNavController(requireActivity(),R.id.mainScreenContainer)
+             controller.navigate(R.id.navigateToProductScreen,bundle)
+         }
+         catch(e:Exception){
+
+         }
     }
 
     override fun onButtonClicked(buttonCode: Int) {

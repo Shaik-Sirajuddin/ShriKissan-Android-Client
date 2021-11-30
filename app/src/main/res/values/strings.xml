@@ -7,8 +7,7 @@
     <string name="reenter_phone_number">ReEnter Phone Number</string>
     <string name="resend_otp">Resend OTP</string>
     <string name="please_wait">Please Wait:</string>
-    <string name="shop">Shop</string>
-    <string name="cart">Cart</string>
+    <string name="shop">Home</string>
     <string name="other">More</string>
     <string name="rupee">\u20B9</string>
     <string name="browse_categories">Browse Categories</string>
@@ -17,6 +16,30 @@
     <string name="add_a_new_address">Add a new address</string>
     <string name="full_name">Full name</string>
     <string name="mobile_number">Mobile number</string>
+    <string name="cart">Cart</string>
+    <string name="confirm">Confirm</string>
+    <string name="agree">By clicking \'OK\' you agree to our Terms and Conditions</string>
+    <string name="otpsend">An OTP will be sent to your mobile number for verification</string>
+    <string name="enter_your_mobile_number">Enter Your Mobile Number</string>
+    <string name="welcome_to_shrikissan">Welcome to ShriKissan</string>
+    <string name="send_otp_again">Send OTP Again?</string>
+    <string name="please_wai">Please wait,we are auto detecting the OTP sent to</string>
+    <string name="which_language_do_you_prefer">Which language do you prefer?</string>
+    <string name="next">Next</string>
+    <string name="done">Done</string>
+    <string name="network_not_available">Network not available</string>
+    <string name="add_address">Add Address</string>
+    <string name="edit">Edit</string>
+    <string name="remove">Remove</string>
+    <string name="save">Save</string>
+    <string name="no_address_added">No Address Added</string>
+    <string name="order_invoice">Order Invoice</string>
+    <string name="items_price">Items price</string>
+    <string name="delivery_charge">Delivery charges</string>
+    <string name="total_amount">Total Amount</string>
+    <string name="continue_to_payment">Continue to payment</string>
+    <string name="select_address">Select Address</string>
+    <string name="item_details">Item Details</string>
     <string-array name="states">
         <item>Andhra Pradesh</item>
         <item>Arunachal Pradesh</item>

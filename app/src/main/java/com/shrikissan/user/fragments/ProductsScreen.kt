@@ -1,5 +1,6 @@
 package com.shrikissan.user.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -9,10 +10,12 @@ import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
+import com.shrikissan.user.ProductDetailsActivity
 import com.shrikissan.user.R
 import com.shrikissan.user.adapters.ProductsAdapter
 import com.shrikissan.user.databinding.FragmentProductsScreenBinding
 import com.shrikissan.user.models.Product
+import com.shrikissan.user.models.isConnected
 import com.shrikissan.user.network.Repository
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
@@ -30,8 +33,9 @@ class ProductsScreen : Fragment() {
 
         adapter = ProductsAdapter(requireContext(),list){
             val product = Json.encodeToString(list[it])
-            val bundle = bundleOf("product" to product)
-            Navigation.findNavController(binding.root).navigate(R.id.navigateToProductDetailScreen,bundle)
+            val intent = Intent(requireContext(),ProductDetailsActivity::class.java)
+            intent.putExtra("product",product)
+            startActivity(intent)
         }
         repository = Repository(requireContext())
         binding = FragmentProductsScreenBinding.inflate(inflater)
@@ -43,6 +47,14 @@ class ProductsScreen : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val isProduct = arguments?.getBoolean("isProduct",false)?:false
+        if(requireActivity().isConnected()){
+            binding.progressBar.visibility = View.VISIBLE
+            binding.noNetwork.visibility = View.GONE
+        }
+        else{
+            binding.progressBar.visibility = View.GONE
+            binding.noNetwork.visibility = View.VISIBLE
+        }
         if(isProduct){
             val productName = arguments?.getString("productName").toString()
             searchAndLoadProducts(productName)
@@ -55,17 +67,25 @@ class ProductsScreen : Fragment() {
     }
 
     private fun loadCategoryProducts(category:String){
-        repository.getProductsOfACategory{
-            list.clear()
-            list.addAll(it)
-            adapter.notifyDataSetChanged()
+        repository.getProductsOfACategory(category){
+            if(it!=null){
+                list.clear()
+                list.addAll(it)
+                adapter.notifyDataSetChanged()
+            }
+            binding.progressBar.visibility = View.GONE
+            binding.noNetwork.visibility = View.GONE
         }
     }
     private fun searchAndLoadProducts(name:String){
          repository.getProductsByName(name){
-             list.clear()
-             list.addAll(it)
-             adapter.notifyDataSetChanged()
+             if(it!=null){
+                 list.clear()
+                 list.addAll(it)
+                 adapter.notifyDataSetChanged()
+             }
+             binding.progressBar.visibility = View.GONE
+             binding.noNetwork.visibility = View.GONE
          }
     }
 }

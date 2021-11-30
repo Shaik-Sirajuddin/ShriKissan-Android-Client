@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">gfdgsgf</string>
+    <string name="hello_blank_fragment">dgfsdgf</string>
+    <string name="didn_t_receive_otp">Didn\'t receive OTP?</string>
+    <string name="enter_otp_note">Enter the OTP sent to your phone number to complete verification</string>
+    <string name="verify_otp">Verify OTP</string>
+    <string name="reenter_phone_number">ReEnter Phone Number</string>
+    <string name="resend_otp">Resend OTP</string>
+    <string name="please_wait">Please Wait:</string>
+    <string name="shop">Home</string>
+    <string name="other">More</string>
+    <string name="rupee">\u20B9</string>
+    <string name="browse_categories">dsgfsfs</string>
+    <string name="buy_now">Buy Now</string>
+    <string name="add_to_cart">Add to cart</string>
+    <string name="add_a_new_address">Add a new address</string>
+    <string name="full_name">Full name</string>
+    <string name="mobile_number">Mobile number</string>
+    <string name="cart">Cart</string>
+    <string name="confirm">Confirm</string>
+    <string name="agree">By clicking \'OK\' you agree to our Terms and Conditions</string>
+    <string name="otpsend">An OTP will be sent to your mobile number for verification</string>
+    <string name="enter_your_mobile_number">Enter Your Mobile Number</string>
+    <string name="welcome_to_shrikissan">Welcome to ShriKissan</string>
+    <string name="send_otp_again">Send OTP Again?</string>
+    <string name="please_wai">Please wait,we are auto detecting the OTP sent to</string>
+    <string name="which_language_do_you_prefer">konsa ?</string>
+    <string name="next">Next</string>
+    <string-array name="states">
+        <item>Andhra Pradesh</item>
+        <item>Arunachal Pradesh</item>
+        <item>Assam</item>
+        <item>Bihar</item>
+        <item>Chhattisgarh</item>
+        <item>Goa</item>
+        <item>Gujarat</item>
+        <item>Haryana</item>
+        <item>Himachal Pradesh</item>
+        <item>Jharkhand</item>
+        <item>Karnataka</item>
+        <item>Kerala</item>
+        <item>Madhya Pradesh</item>
+        <item>Maharashtra</item>
+        <item>Manipur</item>
+        <item>Meghalaya</item>
+        <item>Mizoram</item>
+        <item>Nagaland</item>
+        <item>Odisha</item>
+        <item>Punjab</item>
+        <item>Rajasthan</item>
+        <item>Sikkim Gangtok</item>
+        <item>Tamil Nadu</item>
+        <item>Telangana</item>
+        <item>Tripura</item>
+        <item> Uttar Pradesh</item>
+        <item> Uttarakhand</item>
+        <item>Gairsain</item>
+        <item>West Bengal</item>
+    </string-array>
+</resources>

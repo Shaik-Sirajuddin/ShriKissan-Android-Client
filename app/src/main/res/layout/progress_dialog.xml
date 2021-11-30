@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    app:cardCornerRadius="5dp"
+    android:padding="10dp"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.github.ybq.android.spinkit.SpinKitView
+            android:id="@+id/spin_kit"
+            android:paddingHorizontal="40dp"
+            android:layout_margin="10dp"
+            style="@style/SpinKitView.Large.MultiplePulseRing"
+            android:layout_width="wrap_content"
+            android:paddingVertical="5dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:SpinKit_Color="@color/colorAccent" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Loading"
+            android:textSize="18sp"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

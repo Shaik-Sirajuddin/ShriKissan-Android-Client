@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="2dp"
+    android:background="@drawable/address_back"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <LinearLayout
+        android:id="@+id/address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        >
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Name"
+            android:padding="7dp"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/lane"
+            android:padding="7dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Flat,House no,Building"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            />
+
+        <TextView
+            android:id="@+id/landMark"
+            android:padding="7dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Landmark"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            />
+        <TextView
+            android:id="@+id/state"
+            android:padding="7dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="City, State, Pincode"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            />
+        <TextView
+            android:id="@+id/phoneNumber"
+            android:padding="7dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Phone Number"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            />
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:paddingBottom="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/address"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        >
+        <Button
+            android:id="@+id/edit"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="@string/edit"
+            android:backgroundTint="#24A316"
+            android:layout_marginEnd="30dp"
+            />
+        <Button
+            android:id="@+id/remove"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="@string/remove"
+            android:backgroundTint="#F40404"
+            android:layout_marginStart="30dp"
+            />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,7 +12,11 @@
         tools:layout="@layout/fragment_category_screen" >
         <action
             android:id="@+id/navigateToProductScreen"
-            app:destination="@id/productsScreen" />
+            app:destination="@id/productsScreen"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
     </fragment>
     <fragment
         android:id="@+id/productsScreen"
@@ -27,21 +31,6 @@
             app:argType="boolean"/>
         <argument
             android:name="productName"
-            app:argType="string"/>
-        <action
-            android:id="@+id/navigateToProductDetailScreen"
-            app:destination="@id/productDetailsScreen" />
-    </fragment>
-    <fragment
-        android:id="@+id/productDetailsScreen"
-        android:name="com.shrikissan.user.fragments.ProductDetailsScreen"
-        android:label="fragment_product_details_screen"
-        tools:layout="@layout/fragment_product_details_screen" >
-        <action
-            android:id="@+id/detailToProduct"
-            app:destination="@id/productsScreen" />
-        <argument
-            android:name="product"
             app:argType="string"/>
     </fragment>
 </navigation>

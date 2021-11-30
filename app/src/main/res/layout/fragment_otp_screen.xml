@@ -1,124 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SignInActivity">
+
     <ImageView
-        android:id="@+id/otp_image"
-        android:layout_width="200dp"
-        android:layout_height="0dp"
-        android:src="@drawable/otp_verify"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/textVerify"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/verify_otp"
-        android:textColor="#000000"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/otp_image"
-        app:layout_constraintStart_toStartOf="@+id/otp_image"
-        app:layout_constraintTop_toBottomOf="@+id/otp_image" />
-
-    <TextView
-        android:id="@+id/textV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="15sp"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginEnd="4dp"
-        android:gravity="center"
-        android:text="@string/enter_otp_note"
-        app:layout_constraintTop_toBottomOf="@id/textVerify"
-        app:layout_constraintEnd_toEndOf="@+id/textVerify"
-        app:layout_constraintStart_toStartOf="@+id/textVerify"/>
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="6dp"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="20dp"
+        android:id="@+id/imageView3"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_margin="20dp"
+        android:padding="10dp"
+        android:src="@drawable/language"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textV">
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/greenDark" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="@string/which_language_do_you_prefer"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/imageView3"
+        app:layout_constraintStart_toStartOf="@+id/imageView3"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_margin="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/textView3">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:orientation="vertical"
-            android:padding="4dp">
+            android:orientation="vertical">
 
-            <com.mukesh.OtpView
-                android:id="@+id/otpVw"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:focusableInTouchMode="true"
-                android:inputType="number"
-                android:itemBackground="@color/purple_700"
-                android:padding="10dp"
-                android:textColor="@android:color/white"
-                app:OtpItemCount="6"
-                app:OtpLineColor="@color/grey"
-                app:OtpViewType="line" />
-
-            <Button
-                android:visibility="gone"
-                android:id="@+id/continueBut"
+            <LinearLayout
+                android:id="@+id/hindi"
+                android:gravity="center_vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#4CAF50"
-                android:text="@string/reenter_phone_number"
-                android:textSize="14sp" />
+                android:orientation="horizontal"
+                app:layout_constraintTop_toTopOf="parent">
 
+                <TextView
+                    android:id="@+id/hindiName"
+                    android:text="Hindi"
+                    android:textColor="@color/black"
+                    android:padding="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:visibility="gone"
+                    android:id="@+id/hindiTick"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_baseline_check_24"
+                    app:tint="@color/greenDark" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/english"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/englishName"
+                    android:text="English"
+                    android:textColor="@color/greenDark"
+                    android:padding="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:id="@+id/englishTick"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_baseline_check_24"
+                    app:tint="@color/greenDark" />
+            </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
-    <TextView
-        android:id="@+id/didnt"
-        android:text="@string/didn_t_receive_otp"
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/next"
+        android:text="@string/next"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:textSize="15sp"
-        android:textAlignment="center"
-        app:layout_constraintStart_toStartOf="parent"
-        android:textColor="#CC0F01"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardView"
-        />
-
-    <TextView
-        android:id="@+id/resend"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="@string/resend_otp"
-        android:textColor="@color/black"
-        android:textSize="15sp"
-        android:clickable="false"
-        app:layout_constraintEnd_toEndOf="@+id/didnt"
-        app:layout_constraintStart_toStartOf="@+id/didnt"
-        app:layout_constraintTop_toBottomOf="@id/didnt" />
-    <ProgressBar
-        android:elevation="100dp"
-        android:id="@+id/progressBar"
-        android:visibility="gone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:background="@color/greenDark"
+        app:layout_constraintBottom_toBottomOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

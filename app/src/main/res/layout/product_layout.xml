@@ -5,6 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_margin="10dp"
     app:cardCornerRadius="4dp"
+    app:strokeColor="#E3DDDD"
+    app:cardElevation="1dp"
+    app:strokeWidth="1dp"
     android:layout_height="wrap_content">
    <LinearLayout
        android:gravity="center"
@@ -13,6 +16,7 @@
        android:layout_height="wrap_content">
        <com.google.android.material.card.MaterialCardView
            app:cardCornerRadius="3dp"
+           app:cardElevation="-5dp"
            android:layout_margin="10dp"
            android:layout_width="match_parent"
            android:layout_height="wrap_content">

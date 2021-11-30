@@ -2,11 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:title="@string/shop"
         android:id="@+id/homeScreen"
-        android:icon="@drawable/shop"/>
+        android:icon="@drawable/home"/>
 
     <item android:title="@string/cart"
         android:id="@+id/cartScreen"
-        android:icon="@drawable/cart"/>
+        android:icon="@drawable/cart1"/>
     <item android:title="@string/other"
         android:id="@+id/moreScreen"
         android:icon="@drawable/discover"/>
