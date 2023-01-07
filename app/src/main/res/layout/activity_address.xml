@@ -25,7 +25,8 @@
     <TextView
         android:visibility="gone"
         android:id="@+id/tohide"
-        android:text="@string/no_address_added"
+        android:textSize="16sp"
+        android:text="@string/no_address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"

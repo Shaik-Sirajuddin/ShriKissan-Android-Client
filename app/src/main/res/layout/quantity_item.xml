@@ -8,7 +8,7 @@
   <TextView
       android:id="@+id/text"
       android:gravity="center"
-      android:text="100 grams"
+      android:text="@string/_100_grams"
       android:padding="7dp"
       android:textSize="15sp"
       android:textAlignment="center"

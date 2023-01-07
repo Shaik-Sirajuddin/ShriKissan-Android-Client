@@ -6,6 +6,7 @@ dependencyResolutionManagement {
         jcenter() // Warning: this repository is going to shut down soon
         maven { url = uri("https://dl.bintray.com/kotlin/kotlin-eap") }
         maven { url "https://jitpack.io" }
+        maven {  url 'https://maven.cashfree.com/release'}
     }
 }
 rootProject.name = "ShriKissan"

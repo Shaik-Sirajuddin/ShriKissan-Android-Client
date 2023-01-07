@@ -22,6 +22,7 @@ import android.os.Build
 import android.annotation.TargetApi
 import android.content.res.Configuration
 import android.content.res.Resources
+import androidx.navigation.Navigation
 
 
 class OtpScreen : Fragment() {
@@ -33,24 +34,22 @@ class OtpScreen : Fragment() {
     ): View {
         binding = FragmentOtpScreenBinding.inflate(inflater)
         data = requireContext().getSharedPreferences(Constants.preference, Context.MODE_PRIVATE)
+        binding.hindiLayout.setBackgroundResource(R.color.white)
+        binding.englishLayout.setBackgroundResource(R.color.redlight)
+        setLanguage("en")
         binding.english.setOnClickListener {
-            binding.englishName.setTextColor(ContextCompat.getColor(requireContext(), R.color.greenDark))
-            binding.hindiName.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
-            binding.englishTick.visibility = View.VISIBLE
-            binding.hindiTick.visibility = View.GONE
+            binding.hindiLayout.setBackgroundResource(R.color.white)
+            binding.englishLayout.setBackgroundResource(R.color.redlight)
             setLanguage("en")
         }
         binding.hindi.setOnClickListener {
-            binding.hindiName.setTextColor(ContextCompat.getColor(requireContext(), R.color.greenDark))
-            binding.englishName.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
-            binding.englishTick.visibility = View.GONE
-            binding.hindiTick.visibility = View.VISIBLE
+            binding.hindiLayout.setBackgroundResource(R.color.redlight)
+            binding.englishLayout.setBackgroundResource(R.color.white)
             setLanguage("hi")
         }
         binding.next.setOnClickListener {
-            val intent = Intent(requireContext(), MainActivity::class.java)
-            startActivity(intent)
-            requireActivity().finishAffinity()
+           Navigation.findNavController(binding.root)
+               .navigate(R.id.navigage_to_welcome_screen)
         }
         return binding.root
     }

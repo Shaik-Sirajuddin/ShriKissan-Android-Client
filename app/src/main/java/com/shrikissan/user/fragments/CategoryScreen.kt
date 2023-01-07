@@ -1,6 +1,8 @@
 package com.shrikissan.user.fragments
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +10,7 @@ import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
+import com.shrikissan.user.ContactUsActivity
 import com.shrikissan.user.R
 import com.shrikissan.user.adapters.CategoryAdapter
 import com.shrikissan.user.databinding.FragmentCategoryScreenBinding
@@ -30,15 +33,20 @@ class CategoryScreen : Fragment() {
             val bundle = bundleOf("category" to list[it].id)
             Navigation.findNavController(binding.root).navigate(R.id.navigateToProductScreen,bundle)
         }
+        binding.soilTest.setOnClickListener {
+            val intent = Intent(requireContext(),ContactUsActivity::class.java)
+            startActivity(intent)
+        }
+        binding.contactUs.setOnClickListener {
+            val intent = Intent(requireContext(),ContactUsActivity::class.java)
+            startActivity(intent)
+        }
         repository = Repository(requireContext())
         binding.recyclerView.layoutManager = GridLayoutManager(requireContext(),2)
         binding.recyclerView.adapter = adapter
         view1 = binding.root
-        return binding.root
-    }
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
         checkNetworkAndLoad()
+        return binding.root
     }
     private fun checkNetworkAndLoad(){
         if(requireActivity().isConnected()){
@@ -51,13 +59,21 @@ class CategoryScreen : Fragment() {
     }
     private fun loadCategories(){
         repository.getCategories {
+            binding.progressBar.visibility = View.GONE
+            binding.noNetwork.visibility = View.GONE
             if(it!=null){
                 list.clear()
                 list.addAll(it)
                 adapter.notifyDataSetChanged()
+                if(list.isEmpty()){
+                    binding.noNetwork.text = resources.getString(R.string.no_category)
+                    binding.noNetwork.visibility = View.VISIBLE
+                }
             }
-            binding.progressBar.visibility = View.GONE
-            binding.noNetwork.visibility = View.GONE
+            else{
+                binding.noNetwork.text = resources.getString(R.string.network_not_available)
+                binding.noNetwork.visibility = View.VISIBLE
+            }
         }
     }
 

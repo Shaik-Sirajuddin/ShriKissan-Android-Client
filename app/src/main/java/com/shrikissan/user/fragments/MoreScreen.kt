@@ -9,9 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.edit
-import com.shrikissan.user.ChangeLanguage
-import com.shrikissan.user.SignInActivity
-import com.shrikissan.user.UpdateProfileActivity
+import com.shrikissan.user.*
 import com.shrikissan.user.databinding.FragmentCartScreenBinding
 import com.shrikissan.user.databinding.FragmentMoreScreenBinding
 import com.shrikissan.user.models.Constants
@@ -26,7 +24,8 @@ class MoreScreen : Fragment() {
     ): View {
         binding = FragmentMoreScreenBinding.inflate(inflater)
         binding.changeAddress.setOnClickListener{
-
+            val intent = Intent(requireContext(),AddressActivity::class.java)
+            startActivity(intent)
         }
         binding.logOut.setOnClickListener {
             AlertDialog.Builder(requireContext())
@@ -50,13 +49,19 @@ class MoreScreen : Fragment() {
             startActivity(intent)
         }
         binding.inviteAndEarn.setOnClickListener {
-
+            val intent = Intent(requireContext(),InviteAndEarnActivity::class.java)
+            startActivity(intent)
         }
         binding.contactUs.setOnClickListener {
-
+            val intent = Intent(requireContext(),ContactUsActivity::class.java)
+            startActivity(intent)
         }
         binding.privacyPolicy.setOnClickListener {
 
+        }
+        binding.orders.setOnClickListener {
+            val intent = Intent(requireContext(),MyOrdersActivity::class.java)
+            startActivity(intent)
         }
 
         return binding.root
@@ -67,6 +72,7 @@ class MoreScreen : Fragment() {
         data.edit {
             putString(Constants.userNumber, "")
             putBoolean(Constants.isLoggedIn, false)
+            remove(Constants.token)
             commit()
         }
     }

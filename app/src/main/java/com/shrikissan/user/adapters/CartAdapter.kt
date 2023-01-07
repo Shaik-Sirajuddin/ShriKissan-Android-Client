@@ -33,7 +33,10 @@ class CartAdapter(
             .load(product.image)
             .into(holder.image)
         holder.name.text = product.name
-        //holder.price.text = product.product_cost.toString()
+        if(product.itemsList.size>0){
+            holder.price.text = context.getString(R.string.rupee)+
+                    product.itemsList[0].product_cost.toString()
+        }
         holder.quantity.text = list[pos].quantity.toString()
         holder.increase.setOnClickListener {
             listener.increase(holder.adapterPosition)
@@ -52,8 +55,8 @@ class CartAdapter(
 }
 
 class CartViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-    val image: ImageView = itemView.findViewById(R.id.imageView)
-    val name: TextView = itemView.findViewById(R.id.productimage)
+    val image: ImageView = itemView.findViewById(R.id.productimage)
+    val name: TextView = itemView.findViewById(R.id.productname)
     val price: TextView = itemView.findViewById(R.id.price)
     val increase: ImageButton = itemView.findViewById(R.id.increasebutton)
     val decrease: ImageButton = itemView.findViewById(R.id.decreasebutton)

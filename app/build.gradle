@@ -4,7 +4,7 @@ plugins {
     id 'androidx.navigation.safeargs'
     id 'org.jetbrains.kotlin.plugin.serialization' version '1.6.0'
 }
-
+apply plugin: 'com.google.gms.google-services'
 android {
     compileSdk 31
 
@@ -37,7 +37,13 @@ android {
 }
 
 dependencies {
-    //Animation
+    //loaction
+    implementation 'com.google.android.gms:play-services-location:18.0.0'
+    implementation platform('com.google.firebase:firebase-bom:29.0.1')
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation 'com.google.firebase:firebase-database-ktx'
+    //CashFree
+    implementation 'com.cashfree.pg:android-sdk:1.7.12'
     //SpinKit
     implementation 'com.github.ybq:Android-SpinKit:1.4.0'
     //Serialization

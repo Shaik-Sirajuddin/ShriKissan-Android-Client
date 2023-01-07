@@ -15,23 +15,25 @@ import com.shrikissan.user.models.showToast
 import androidx.navigation.Navigation
 
 import androidx.navigation.fragment.NavHostFragment
+import com.shrikissan.user.models.Profile
 import com.shrikissan.user.network.OtpRepository
+import com.shrikissan.user.network.Repository
 import java.util.*
 
 
 class SignInActivity : AppCompatActivity(), OtpDialog.OtpDialogListener {
     private lateinit var binding: ActivitySignInBinding
     private lateinit var data: SharedPreferences
-    private var otpDialog:OtpDialog? = null
+    private var otpDialog: OtpDialog? = null
     private lateinit var otpRepository: OtpRepository
     private var transId = ""
-    private var progressDialog:CustomProgressDialog? = null
+    private var progressDialog: CustomProgressDialog? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportActionBar?.hide()
         binding = ActivitySignInBinding.inflate(layoutInflater)
         data = getSharedPreferences(Constants.preference, Context.MODE_PRIVATE)
-        val lang = data.getString(Constants.language,"en")?:"en"
+        val lang = data.getString(Constants.language, "en") ?: "en"
         setLanguage(lang)
         setContentView(binding.root)
         otpRepository = OtpRepository(this)
@@ -43,15 +45,17 @@ class SignInActivity : AppCompatActivity(), OtpDialog.OtpDialogListener {
             finishAffinity()
         }
     }
-    private fun setLanguage(code:String){
-        val res =  resources
+
+    private fun setLanguage(code: String) {
+        val res = resources
         val locale = Locale(code)
         Locale.setDefault(locale)
         val config = res.configuration
         config.setLocale(locale)
         createConfigurationContext(config)
-        res.updateConfiguration(config,res.displayMetrics)
+        res.updateConfiguration(config, res.displayMetrics)
     }
+
     override fun otpCompleted(string: String) {
         checkInUser(string)
     }
@@ -64,46 +68,62 @@ class SignInActivity : AppCompatActivity(), OtpDialog.OtpDialogListener {
         otpDialog?.dismiss()
     }
 
-    private fun checkOTP(otp:String,onComplete:(done:Boolean)->Unit) {
+    private fun checkOTP(otp: String, onComplete: (done: Boolean, disable: () -> Unit) -> Unit) {
         progressDialog = CustomProgressDialog(this)
         progressDialog?.show()
-        otpRepository.verifyOTP(transId,otp){
-            progressDialog?.dismiss()
-            progressDialog?.cancel()
-            onComplete(it)
+        otpRepository.verifyOTP(transId, otp) {
+            onComplete(it) {
+                progressDialog?.dismiss()
+            }
         }
     }
 
     fun sendOTP() {
-        otpRepository.sendOTP(Constants.phoneNumber){
-            if(it!=null){
+        otpRepository.sendOTP(Constants.phoneNumber) {
+            if (it != null) {
                 transId = it
-            }
-            else{
+            } else {
                 showToast("Invalid Number")
             }
         }
     }
 
     private fun checkInUser(string: String) {
-        checkOTP(string){
+        checkOTP(string) { it, onComplete ->
             if (it) {
-                otpDialog?.dismiss()
-                data.edit {
-                    putString(Constants.userNumber, Constants.phoneNumber)
-                    putBoolean(Constants.isLoggedIn, true)
-                    apply()
+                val repository = Repository(this)
+                val profile = Profile(Constants.phoneNumber, Constants.phoneNumber, "")
+                repository.addProfile(profile) { done ->
+                    onComplete()
+                    otpDialog?.dismiss()
+                    if (done) {
+                        check()
+                    } else {
+                        showToast("Failed to create profile")
+                    }
                 }
-                Navigation.findNavController(binding.fragmentContainerView).navigate(R.id.navigate_to_otpScreen)
+
 
             } else {
+                otpDialog?.dismiss()
                 showToast("Invalid OTP")
             }
         }
     }
-    fun showOTPDialog(){
-        Log.d("enter","ok")
-        otpDialog =  OtpDialog()
-        otpDialog?.show(supportFragmentManager,"This")
+
+    private fun check() {
+        data.edit {
+            putString(Constants.userNumber, Constants.phoneNumber)
+            putBoolean(Constants.isLoggedIn, true)
+            apply()
+        }
+        Navigation.findNavController(binding.fragmentContainerView)
+            .navigate(R.id.navigate_to_otpScreen)
+    }
+
+    fun showOTPDialog() {
+        Log.d("enter", "ok")
+        otpDialog = OtpDialog()
+        otpDialog?.show(supportFragmentManager, "This")
     }
 }

@@ -12,7 +12,8 @@ class CustomProgressDialog(context: Context): Dialog(context) {
             params.gravity = Gravity.CENTER_HORIZONTAL
             window?.attributes = params
             setTitle(null)
-            setCancelable(false)
+            setCancelable(true)
+            setCanceledOnTouchOutside(false)
             setOnCancelListener(null)
             val view = LayoutInflater.from(context)
                 .inflate(R.layout.progress_dialog,null,false)

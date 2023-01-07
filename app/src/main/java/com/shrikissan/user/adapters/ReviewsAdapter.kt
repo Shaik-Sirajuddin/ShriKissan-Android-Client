@@ -36,6 +36,12 @@ class ReviewsAdapter(private val context:Context, private val list:ArrayList<Rev
         }
         holder.imageSlider.setImageList(imageList)
         holder.imageSlider.stopSliding()
+        if(list[pos].images.isEmpty()){
+            holder.imageSlider.visibility = View.GONE
+        }
+        else{
+            holder.imageSlider.visibility = View.VISIBLE
+        }
         Glide.with(context)
             .load(list[pos].reviewerImage)
             .placeholder(R.drawable.profile)

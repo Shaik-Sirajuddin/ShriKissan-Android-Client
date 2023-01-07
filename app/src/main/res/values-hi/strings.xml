@@ -1,61 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">gfdgsgf</string>
-    <string name="hello_blank_fragment">dgfsdgf</string>
-    <string name="didn_t_receive_otp">Didn\'t receive OTP?</string>
-    <string name="enter_otp_note">Enter the OTP sent to your phone number to complete verification</string>
-    <string name="verify_otp">Verify OTP</string>
-    <string name="reenter_phone_number">ReEnter Phone Number</string>
-    <string name="resend_otp">Resend OTP</string>
-    <string name="please_wait">Please Wait:</string>
-    <string name="shop">Home</string>
-    <string name="other">More</string>
+    <string name="app_name">श्रीकिसान</string>
+    <string name="hello_blank_fragment">नमस्ते खाली टुकड़ा</string>
+    <string name="didn_t_receive_otp">ओटीपी प्राप्त नहीं हुआ?</string>
+    <string name="enter_otp_note">सत्यापन पूर्ण करने के लिए आपके फ़ोन नंबर पर भेजे गए OTP को दर्ज करें</string>
+    <string name="verify_otp">ओटीपी सत्यापित करें</string>
+    <string name="reenter_phone_number">फ़ोन नंबर पुनः दर्ज करें</string>
+    <string name="resend_otp">ओटीपी पुनः भेजें</string>
+    <string name="please_wait">कृपया प्रतीक्षा करें:</string>
+    <string name="shop">घर</string>
+    <string name="other">अधिक</string>
     <string name="rupee">\u20B9</string>
-    <string name="browse_categories">dsgfsfs</string>
-    <string name="buy_now">Buy Now</string>
-    <string name="add_to_cart">Add to cart</string>
-    <string name="add_a_new_address">Add a new address</string>
-    <string name="full_name">Full name</string>
-    <string name="mobile_number">Mobile number</string>
-    <string name="cart">Cart</string>
-    <string name="confirm">Confirm</string>
-    <string name="agree">By clicking \'OK\' you agree to our Terms and Conditions</string>
-    <string name="otpsend">An OTP will be sent to your mobile number for verification</string>
-    <string name="enter_your_mobile_number">Enter Your Mobile Number</string>
-    <string name="welcome_to_shrikissan">Welcome to ShriKissan</string>
-    <string name="send_otp_again">Send OTP Again?</string>
-    <string name="please_wai">Please wait,we are auto detecting the OTP sent to</string>
-    <string name="which_language_do_you_prefer">konsa ?</string>
-    <string name="next">Next</string>
+    <string name="browse_categories">श्रेणियाँ ब्राउज़ करें</string>
+    <string name="buy_now">अभी खरीदें</string>
+    <string name="add_to_cart">कार्ट में जोड़ें</string>
+    <string name="add_a_new_address">एक नया पता लिखो</string>
+    <string name="full_name">पूरा नाम</string>
+    <string name="mobile_number">मोबाइल नंबर</string>
+    <string name="cart">कार्ट</string>
+    <string name="confirm">पुष्टि करना</string>
+    <string name="agree">\'ठीक\' क्लिक करके आप हमारे नियमों और शर्तों से सहमत होते हैं</string>
+    <string name="otpsend">सत्यापन के लिए आपके मोबाइल नंबर पर एक ओटीपी भेजा जाएगा</string>
+    <string name="enter_your_mobile_number">अपना मोबाइल संख्या दर्ज करे</string>
+    <string name="welcome_to_shrikissan">श्रीकिसन में आपका स्वागत है</string>
+    <string name="send_otp_again">दोबारा ओटीपी भेजें?</string>
+    <string name="please_wai">कृपया प्रतीक्षा करें, हम ओटीपी का स्वतः पता लगा रहे हैं</string>
+    <string name="which_language_do_you_prefer">आप कौन सी भाषा पसंद करते हैं?</string>
+    <string name="next">अगला</string>
+    <string name="done">होगया</string>
+    <string name="no_category">कोई श्रेणी नहीं मिली</string>
+    <string name="no_orders">आपके पास कोई आदेश नहीं है</string>
+    <string name="no_address">आपका कोई पता सेव नहीं है</string>
+    <string name="empty_cart">आपकी गाड़ी खाली है</string>
+    <string name="no_products">कोई उत्पाद नहीं मिला</string>
+    <string name="network_not_available">नेटवर्क उपलब्ध नहीं</string>
+    <string name="add_address">पता जोड़ें</string>
+    <string name="edit">संपादित करें</string>
+    <string name="remove">हटाना</string>
+    <string name="save">सहेजें</string>
+    <string name="order_invoice">आदेश चालान</string>
+    <string name="items_price">आइटम की कीमत</string>
+    <string name="delivery_charge">पहुंचाने का शुल्क</string>
+    <string name="total_amount">कुल राशि</string>
+    <string name="continue_to_payment">भुगतान जारी रखें</string>
+    <string name="select_address">पता चुनें</string>
+    <string name="item_details">आइटम विवरण</string>
+    <string name="use_wallet_balance">वॉलेट बैलेंस का उपयोग करें</string>
+    <string name="wallet">बटुआ</string>
+    <string name="order_details">ऑर्डर का विवरण</string>
+    <string name="deliver_to">करने के लिए वितरित</string>
+    <string name="order_id">आदेश ID :</string>
+    <string name="ref_id">\"संदर्भ पहचान पत्र : \"</string>
+    <string name="my_orders">मेरे आदेश</string>
+    <string name="name">नाम</string>
+    <string name="whatsapp_number">व्हाट्सएप नंबर</string>
+    <string name="topic">विषय</string>
+    <string name="send_call_request">कॉल अनुरोध भेजें</string>
+    <string name="send_videocall_request">वीडियो कॉल अनुरोध भेजें</string>
+    <string name="leave_a_review_here">यहां एक समीक्षा छोड़ें</string>
+    <string name="review">समीक्षा</string>
+    <string name="upload_image">तस्विर अपलोड करना</string>
+    <string name="no_items_to_show">दिखाने के लिए कोई आइटम नहीं</string>
+    <string name="proceed_to_checkout">चेक आउट करने के लिए आगे बढ़ें</string>
+    <string name="flat_area_colony_street_village">फ्लैट, क्षेत्र, कॉलोनी, गली, गांव</string>
+    <string name="pin_code">पिन कोड</string>
+    <string name="landmark_e_g_near_apollo_hospital">मील का पत्थर उदा. अपोलो अस्पताल के पास</string>
+    <string name="town_city">टाउन/सिटी</string>
+    <string name="fill_details_and_send_contact_request">विवरण भरें और संपर्क अनुरोध भेजें</string>
+    <string name="send_request">अनुरोध भेजा</string>
+    <string name="product_description">उत्पाद वर्णन</string>
+    <string name="my_name">मेरा नाम</string>
+    <string name="city_state_pincode">शहर, राज्य, पिनकोड</string>
+    <string name="more">अधिक</string>
+    <string name="edit_profile">प्रोफ़ाइल संपादित करें</string>
+    <string name="invite_and_earn">आमंत्रित करें और कमाएं</string>
+    <string name="change_address">पता बदल जाना</string>
+    <string name="change_language">भाषा बदलें</string>
+    <string name="contact_us">संपर्क करें</string>
+    <string name="privac_y_policy">गोपनीयता नीति</string>
+    <string name="log_out">लॉग आउट</string>
+    <string name="english">अंग्रेज़ी</string>
+    <string name="hindi">हिंदी</string>
+    <string name="loading">लोड हो रहा है</string>
+    <string name="_100_grams">100 ग्राम</string>
     <string-array name="states">
-        <item>Andhra Pradesh</item>
-        <item>Arunachal Pradesh</item>
-        <item>Assam</item>
-        <item>Bihar</item>
-        <item>Chhattisgarh</item>
-        <item>Goa</item>
-        <item>Gujarat</item>
-        <item>Haryana</item>
-        <item>Himachal Pradesh</item>
-        <item>Jharkhand</item>
-        <item>Karnataka</item>
-        <item>Kerala</item>
-        <item>Madhya Pradesh</item>
-        <item>Maharashtra</item>
-        <item>Manipur</item>
-        <item>Meghalaya</item>
-        <item>Mizoram</item>
-        <item>Nagaland</item>
-        <item>Odisha</item>
-        <item>Punjab</item>
-        <item>Rajasthan</item>
-        <item>Sikkim Gangtok</item>
-        <item>Tamil Nadu</item>
-        <item>Telangana</item>
-        <item>Tripura</item>
-        <item> Uttar Pradesh</item>
-        <item> Uttarakhand</item>
-        <item>Gairsain</item>
-        <item>West Bengal</item>
+        <item>आंध्र प्रदेश</item>
+        <item>अरुणाचल प्रदेश</item>
+        <item>असम</item>
+        <item>बिहार</item>
+        <item>छत्तीसगढ</item>
+        <item>गोवा</item>
+        <item>गुजरात</item>
+        <item>हरियाणा</item>
+        <item>हिमाचल प्रदेश</item>
+        <item>झारखंड</item>
+        <item>कर्नाटक</item>
+        <item>केरल</item>
+        <item>मध्य प्रदेश</item>
+        <item>महाराष्ट्र</item>
+        <item>मणिपुर</item>
+        <item>मेघालय</item>
+        <item>मिजोरम</item>
+        <item>नगालैंड</item>
+        <item>उड़ीसा</item>
+        <item>पंजाब</item>
+        <item>राजस्थान</item>
+        <item>सिक्किम गंगटोक</item>
+        <item>तमिलनाडु</item>
+        <item>तेलंगाना</item>
+        <item>त्रिपुरा</item>
+        <item>उत्तर प्रदेश</item>
+        <item>उत्तराखंड</item>
+        <item>गैरसैण</item>
+        <item>पश्चिम बंगाल</item>
+    </string-array>
+    <string-array name="requests">
+        <item>VoiceCallRequest</item>
+        <item>VideoCallRequest</item>
+        <item>Request Soil Test</item>
     </string-array>
 </resources>

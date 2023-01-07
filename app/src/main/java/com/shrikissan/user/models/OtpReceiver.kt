@@ -16,12 +16,18 @@ class OTPReceiver : BroadcastReceiver() {
     }
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     override fun onReceive(context: Context?, intent: Intent?) {
-        val smsMessages: Array<SmsMessage> = Telephony.Sms.Intents.getMessagesFromIntent(intent)
-        for (smsMessage in smsMessages) {
-            val message_body: String = smsMessage.messageBody
-            val getOTP = message_body.split(":").toTypedArray()[1]
-            editText_otp!!.setText(getOTP)
+        try{
+            val smsMessages: Array<SmsMessage> = Telephony.Sms.Intents.getMessagesFromIntent(intent)
+            for (smsMessage in smsMessages) {
+                val message_body: String = smsMessage.messageBody
+                val getOTP = message_body.split(":").toTypedArray()[0]
+                editText_otp!!.setText(getOTP)
+            }
         }
+        catch (e:Exception){
+
+        }
+
     }
 
     companion object {

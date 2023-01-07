@@ -15,16 +15,18 @@
             android:layout_width="match_parent"
             android:backgroundTint="@color/greenDark"
             android:layout_height="60dp">
+
             <TextView
-                android:text="More"
-                android:textSize="22sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:textStyle="bold"
-                android:textColor="@color/white"
                 android:layout_margin="12dp"
                 android:animateLayoutChanges="false"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:fontFamily="@font/headland_one"
+                android:text="@string/more"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:textStyle="bold" />
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
@@ -60,9 +62,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_vertical"
-                        android:text="Edit Profile"
+                        android:text="@string/edit_profile"
                         android:textColor="@color/black"
                         android:textSize="18sp"
+                        android:fontFamily="@font/headland_one"
                         android:textStyle="bold" />
                 </LinearLayout>
                 <LinearLayout
@@ -84,9 +87,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_vertical"
-                        android:text="Invite And Earn"
+                        android:text="@string/invite_and_earn"
                         android:textColor="@color/black"
                         android:textSize="18sp"
+                        android:fontFamily="@font/headland_one"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -110,9 +114,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_vertical"
-                        android:text="My Orders"
+                        android:text="@string/my_orders"
                         android:textColor="@color/black"
                         android:textSize="18sp"
+                        android:fontFamily="@font/headland_one"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -136,9 +141,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_vertical"
-                        android:text="Change Address"
+                        android:text="@string/change_address"
                         android:textColor="@color/black"
                         android:textSize="18sp"
+                        android:fontFamily="@font/headland_one"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -162,10 +168,12 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_vertical"
-                        android:text="Contact Us"
+                        android:text="@string/contact_us"
                         android:textColor="@color/black"
                         android:textSize="18sp"
-                        android:textStyle="bold" />
+                        android:fontFamily="@font/headland_one"
+                        android:textStyle="bold"
+                        />
                 </LinearLayout>
 
                 <LinearLayout
@@ -188,9 +196,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_vertical"
-                        android:text="Change Language"
+                        android:text="@string/change_language"
                         android:textColor="@color/black"
                         android:textSize="18sp"
+                        android:fontFamily="@font/headland_one"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -213,9 +222,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_vertical"
-                        android:text="Privacy Policy"
+                        android:text="@string/privac_y_policy"
                         android:textColor="@color/black"
                         android:textSize="18sp"
+                        android:fontFamily="@font/headland_one"
                         android:textStyle="bold" />
                 </LinearLayout>
                 <LinearLayout
@@ -237,9 +247,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_vertical"
-                        android:text="Log Out"
+                        android:text="@string/log_out"
                         android:textColor="@color/black"
                         android:textSize="18sp"
+                        android:fontFamily="@font/headland_one"
                         android:textStyle="bold" />
                 </LinearLayout>
             </LinearLayout>

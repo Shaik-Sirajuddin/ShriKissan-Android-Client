@@ -17,6 +17,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/title"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_margin="4dp"
@@ -66,9 +67,18 @@
             android:layout_height="wrap_content"/>
 
     </LinearLayout>
+    <Button
+        android:visibility="gone"
+        android:id="@+id/review"
+        app:layout_constraintTop_toBottomOf="@id/lay1"
+        android:layout_marginHorizontal="20dp"
+        android:text="Review"
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
     <View
         android:layout_marginTop="4dp"
-        app:layout_constraintTop_toBottomOf="@id/lay1"
+        app:layout_constraintTop_toBottomOf="@id/review"
         android:background="@color/grey"
         android:layout_width="match_parent"
         android:layout_height="2dp"/>

@@ -31,61 +31,74 @@ class ProductsScreen : Fragment() {
         savedInstanceState: Bundle?,
     ): View {
 
-        adapter = ProductsAdapter(requireContext(),list){
+        adapter = ProductsAdapter(requireContext(), list) {
             val product = Json.encodeToString(list[it])
-            val intent = Intent(requireContext(),ProductDetailsActivity::class.java)
-            intent.putExtra("product",product)
+            val intent = Intent(requireContext(), ProductDetailsActivity::class.java)
+            intent.putExtra("product", product)
             startActivity(intent)
         }
         repository = Repository(requireContext())
         binding = FragmentProductsScreenBinding.inflate(inflater)
         binding.productRecycle.adapter = adapter
-        binding.productRecycle.layoutManager = GridLayoutManager(requireContext(),2)
+        binding.productRecycle.layoutManager = GridLayoutManager(requireContext(), 2)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val isProduct = arguments?.getBoolean("isProduct",false)?:false
-        if(requireActivity().isConnected()){
+        val isProduct = arguments?.getBoolean("isProduct", false) ?: false
+        if (requireActivity().isConnected()) {
             binding.progressBar.visibility = View.VISIBLE
             binding.noNetwork.visibility = View.GONE
-        }
-        else{
+        } else {
             binding.progressBar.visibility = View.GONE
             binding.noNetwork.visibility = View.VISIBLE
         }
-        if(isProduct){
+        if (isProduct) {
             val productName = arguments?.getString("productName").toString()
             searchAndLoadProducts(productName)
-        }
-        else{
+        } else {
             val category = arguments?.getString("category").toString()
             loadCategoryProducts(category)
         }
-        Log.d("is",isProduct.toString()+"k")
     }
 
-    private fun loadCategoryProducts(category:String){
-        repository.getProductsOfACategory(category){
-            if(it!=null){
+    private fun loadCategoryProducts(category: String) {
+        repository.getProductsOfACategory(category) {
+            binding.progressBar.visibility = View.GONE
+            binding.noNetwork.visibility = View.GONE
+            if (it != null) {
                 list.clear()
                 list.addAll(it)
                 adapter.notifyDataSetChanged()
+                if (list.isEmpty()) {
+                    binding.noNetwork.text = resources.getString(R.string.no_products)
+                    binding.noNetwork.visibility = View.VISIBLE
+                }
+            } else {
+                binding.noNetwork.text = resources.getString(R.string.network_not_available)
+                binding.noNetwork.visibility = View.VISIBLE
             }
-            binding.progressBar.visibility = View.GONE
-            binding.noNetwork.visibility = View.GONE
         }
     }
-    private fun searchAndLoadProducts(name:String){
-         repository.getProductsByName(name){
-             if(it!=null){
-                 list.clear()
-                 list.addAll(it)
-                 adapter.notifyDataSetChanged()
-             }
-             binding.progressBar.visibility = View.GONE
-             binding.noNetwork.visibility = View.GONE
-         }
+
+    private fun searchAndLoadProducts(name: String) {
+        repository.getProductsByName(name) {
+            binding.progressBar.visibility = View.GONE
+            binding.noNetwork.visibility = View.GONE
+            if (it != null) {
+                list.clear()
+                list.addAll(it)
+                adapter.notifyDataSetChanged()
+                if (list.isEmpty()){
+                    binding.noNetwork.text = getString(R.string.no_products)
+                    binding.noNetwork.visibility = View.VISIBLE
+                }
+            }
+            else{
+                binding.noNetwork.text = getString(R.string.network_not_available)
+                binding.noNetwork.visibility = View.VISIBLE
+            }
+        }
     }
 }

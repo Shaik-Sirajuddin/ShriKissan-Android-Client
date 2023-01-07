@@ -1,99 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="2dp"
-    android:background="@drawable/address_back"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    >
+    android:layout_margin="7dp"
+    android:paddingBottom="10dp"
+    android:background="@drawable/address_back">
+
     <LinearLayout
         android:id="@+id/address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp"
         android:layout_marginStart="20dp"
-        >
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Name"
-            android:padding="7dp"
+            android:hint="@string/name"
+            android:padding="3dp"
             android:textColor="@color/black"
             android:textSize="18sp" />
 
         <TextView
             android:id="@+id/lane"
-            android:padding="7dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Flat,House no,Building"
-            android:textSize="18sp"
+            android:hint="@string/flat_area_colony_street_village"
+            android:padding="3dp"
             android:textColor="@color/black"
-            />
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/landMark"
-            android:padding="7dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Landmark"
-            android:textSize="18sp"
+            android:hint="@string/landmark_e_g_near_apollo_hospital"
+            android:padding="3dp"
             android:textColor="@color/black"
-            />
+            android:textSize="18sp" />
+
         <TextView
             android:id="@+id/state"
-            android:padding="7dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="City, State, Pincode"
-            android:textSize="18sp"
+            android:hint="@string/city_state_pincode"
+            android:padding="3dp"
             android:textColor="@color/black"
-            />
+            android:textSize="18sp" />
+
         <TextView
             android:id="@+id/phoneNumber"
-            android:padding="7dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Phone Number"
-            android:textSize="18sp"
+            android:hint="@string/mobile_number"
+            android:padding="3dp"
             android:textColor="@color/black"
-            />
+            android:textSize="18sp" />
 
 
     </LinearLayout>
-    <LinearLayout
-        android:paddingBottom="10dp"
+
+    <Button
+        android:id="@+id/edit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/address"
+        android:backgroundTint="#24A316"
+        android:text="@string/edit"
+        android:layout_margin="10dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp"
-        >
-        <Button
-            android:id="@+id/edit"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:text="@string/edit"
-            android:backgroundTint="#24A316"
-            android:layout_marginEnd="30dp"
-            />
-        <Button
-            android:id="@+id/remove"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:text="@string/remove"
-            android:backgroundTint="#F40404"
-            android:layout_marginStart="30dp"
-            />
+        app:layout_constraintTop_toBottomOf="@+id/address" />
 
-    </LinearLayout>
+    <Button
+        android:id="@+id/remove"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#F40404"
+        android:layout_margin="10dp"
+        android:text="@string/remove"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/address" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+       app:layout_constraintGuide_percent="0.5"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

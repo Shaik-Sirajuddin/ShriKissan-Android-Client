@@ -35,6 +35,7 @@ fun Activity.isConnected(): Boolean {
 class Constants {
     companion object {
         var phoneNumber = ""
+        const val appId:String = ""
         const val preference = "com.shrikissan.user"
         const val userNumber = "number"
         const val isLoggedIn = "login"
@@ -43,6 +44,18 @@ class Constants {
         const val orderKey = "items"
         var offlineToken = ""
         var orderList = ArrayList<CartItem>()
-
+        var number:String = ""
+        var name:String = ""
+    }
+}
+class FireConsts{
+    companion object{
+        const val Support = "Support"
+        const val VoiceRequest = "VoiceCallRequests"
+        const val VideoRequest = "VideoCallRequests"
+        const val VoiceType = "VoiceCall"
+        const val VideoType = "VideoCall"
+        const val soilRequest = "SoilTestRequests"
+        const val soilType = "SoilTest"
     }
 }

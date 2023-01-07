@@ -22,5 +22,18 @@
         android:id="@+id/otpScreen"
         android:name="com.shrikissan.user.fragments.OtpScreen"
         android:label="fragment_otp_screen"
-        tools:layout="@layout/fragment_otp_screen" />
+        tools:layout="@layout/fragment_otp_screen" >
+        <action
+            android:id="@+id/navigage_to_welcome_screen"
+            app:destination="@id/welcomeScreen"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out"/>
+    </fragment>
+    <fragment
+        android:id="@+id/welcomeScreen"
+        android:name="com.shrikissan.user.fragments.WelcomeScreen"
+        android:label="fragment_welcome_screen"
+        tools:layout="@layout/fragment_welcome_screen" />
 </navigation>

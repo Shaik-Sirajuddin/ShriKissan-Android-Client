@@ -5,17 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SignInActivity">
-   <TextView
-       android:id="@+id/header"
-       android:text="@string/welcome_to_shrikissan"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:textColor="#000000"
-       android:layout_margin="10dp"
-       android:textSize="24sp"
-       app:layout_constraintEnd_toEndOf="parent"
-       app:layout_constraintStart_toStartOf="parent"
-       app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:fontFamily="@font/amiko_semibold"
+        android:text="@string/welcome_to_shrikissan"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/PhoneImg"
@@ -34,6 +36,8 @@
         android:id="@+id/textV2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/amiko"
+
         android:text="@string/enter_your_mobile_number"
         android:textColor="@color/greenDark"
         android:textSize="20sp"
@@ -42,6 +46,7 @@
         app:layout_constraintTop_toBottomOf="@+id/PhoneImg" />
 
     <TextView
+        android:fontFamily="@font/amiko"
         android:layout_marginTop="5dp"
         android:id="@+id/textView"
         android:layout_width="0dp"
@@ -92,6 +97,7 @@
         android:textAlignment="center"
         android:textSize="15sp"
         android:padding="10dp"
+        android:fontFamily="@font/amiko"
         android:layout_marginBottom="10dp"
         android:text="@string/agree"
         app:layout_constraintBottom_toTopOf="@+id/continueButton" />

@@ -37,14 +37,10 @@
         android:id="@+id/materialButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="22dp"
-        android:layout_marginVertical="10dp"
         app:cornerRadius="5dp"
-        android:paddingVertical="12dp"
-        android:paddingHorizontal="10dp"
         android:textColor="@color/white"
-        android:backgroundTint="@color/greenDark"
-        android:text="Proceed to checkout"
+        android:background="@color/greenDark"
+        android:text="@string/proceed_to_checkout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -60,4 +56,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:visibility="gone"
+        android:textColor="@color/redDark"
+        android:id="@+id/tohide"
+        android:text="@string/no_items_to_show"
+        android:padding="10dp"
+        android:textSize="16sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/recyclerView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/card" />
 </androidx.constraintlayout.widget.ConstraintLayout>

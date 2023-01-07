@@ -3,6 +3,7 @@ package com.shrikissan.user
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.denzcoskun.imageslider.constants.ScaleTypes
 import com.denzcoskun.imageslider.models.SlideModel
@@ -22,34 +23,67 @@ class ProductDetailsActivity : AppCompatActivity() {
     private val list = ArrayList<Review>()
     private lateinit var quantityAdapter: QuantityListAdapter
     private var selectedPos = 0
+    private val itemsList = ArrayList<SubProduct>()
     private lateinit var repository: Repository
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        supportActionBar?.hide()
+        setTheme(R.style.product_detail)
         binding = ActivityProductDetailsBinding.inflate(layoutInflater)
+        setSupportActionBar(binding.toolBar)
         setContentView(binding.root)
         repository = Repository(this)
         val data = intent
         if (data != null) {
             product = Json.decodeFromString(data.getStringExtra("product").toString())
-            setValues()
+            val dialog = CustomProgressDialog(this)
+            dialog.show()
+            repository.getProductDetails(product.id) {
+                dialog.dismiss()
+                if (it != null) {
+                    product = it
+                    setValues()
+                    binding.tohide.visibility = View.GONE
+                } else {
+                    binding.tohide.visibility = View.VISIBLE
+                }
+            }
+            itemsList.clear()
+            itemsList.addAll(product.itemsList)
         }
+        adapter = ReviewsAdapter(this, list)
+        quantityAdapter = QuantityListAdapter(this, itemsList) {
+            selectedPos = it
+            binding.price.text =
+                getString(R.string.rupee) + product.itemsList[selectedPos].product_cost
+        }
+        binding.quantityList.layoutManager =
+            LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        binding.quantityList.adapter = quantityAdapter
+        binding.recyclerView.layoutManager = object : LinearLayoutManager(this) {
+            override fun canScrollVertically(): Boolean {
+                return false
+            }
+        }
+        binding.recyclerView.adapter = adapter
         binding.buy.setOnClickListener {
-            val intent = Intent(this,OrderActivity::class.java)
-            val item =CartItem(product,product.itemsList[selectedPos],1)
+            val intent = Intent(this, OrderActivity::class.java)
+            val item = CartItem("", product, product.itemsList[selectedPos], 1)
             val aList = ArrayList<CartItem>()
             aList.add(item)
             val cartItem = Json.encodeToString(aList)
-            intent.putExtra(Constants.orderKey,cartItem)
+            intent.putExtra(Constants.orderKey, cartItem)
             startActivity(intent)
         }
         binding.addToCart.setOnClickListener {
             val dial = CustomProgressDialog(this)
             dial.show()
-            repository.addCartItem(CartItem(product, product.itemsList[selectedPos], 1)) {
+            repository.addCartItem(CartItem("", product, product.itemsList[selectedPos], 1)) {
                 dial.dismiss()
-                if(it)
-                showToast("Added")
+                if (it) {
+                    showToast("Added")
+                } else {
+                    showToast("Error Occurred")
+                }
             }
         }
         binding.imageView2.setOnClickListener {
@@ -62,24 +96,17 @@ class ProductDetailsActivity : AppCompatActivity() {
         binding.name.text = product.name
         binding.desciption.text = product.description
         val imageList = ArrayList<SlideModel>()
-        imageList.add(SlideModel("https://i.picsum.photos/id/402/200/300.jpg?hmac=JmZsqnQgJgxs4tbKwb8Tdu3r-B0tEGN7nrKEb1jBB0Y",
-            ScaleTypes.CENTER_INSIDE))
         product.detailImages.forEach {
-            imageList.add(SlideModel(it, ScaleTypes.CENTER_INSIDE))
+            imageList.add(SlideModel(it, ScaleTypes.FIT))
         }
+        binding.ratingBar.rating = product.rating
         binding.imageSlider.setImageList(imageList)
+        list.clear()
+        itemsList.clear()
         list.addAll(product.reviewList)
-        adapter = ReviewsAdapter(this, list)
-        quantityAdapter = QuantityListAdapter(this, product.itemsList) {
-            selectedPos = it
-            binding.price.text =
-                getString(R.string.rupee) + product.itemsList[selectedPos].product_cost
-        }
-        binding.quantityList.layoutManager =
-            LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        binding.quantityList.adapter = quantityAdapter
-        binding.recyclerView.layoutManager = LinearLayoutManager(this)
-        binding.recyclerView.adapter = adapter
+        itemsList.addAll(product.itemsList)
+        adapter.notifyDataSetChanged()
+        quantityAdapter.notifyDataSetChanged()
         if (product.itemsList.isNotEmpty()) {
             binding.price.text = getString(R.string.rupee) + product.itemsList[0].product_cost
         }

@@ -58,10 +58,12 @@ class OtpRepository(val context: Context) {
             { response ->
                 try {
                     val token = response.getString("token")
+                    Log.e("token",token)
                     data.edit {
                         putString(Constants.token,token)
                         commit()
                     }
+                    Constants.offlineToken = token
                     onComplete(true)
                 } catch (e: JSONException) {
                     e.printStackTrace()

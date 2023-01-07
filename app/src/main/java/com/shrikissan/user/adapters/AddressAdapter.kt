@@ -36,7 +36,14 @@ class AddressAdapter(
         holder.lane.text = list[pos].lane
         holder.landMark.text = list[pos].landmark
         holder.all.text = list[pos].city + "," + list[pos].state + "," + list[pos].pinCode
-        holder.number.text = list[pos].phoneNumber.toString()
+        holder.number.text = list[pos].phoneNumber
+        if (disable) {
+            holder.edit.visibility = View.GONE
+            holder.remove.visibility = View.GONE
+        } else {
+            holder.edit.visibility = View.VISIBLE
+            holder.remove.visibility = View.VISIBLE
+        }
     }
 
     override fun getItemCount(): Int {
@@ -49,7 +56,7 @@ class AddressViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     val name: TextView = itemView.findViewById(R.id.name)
     val lane: TextView = itemView.findViewById(R.id.lane)
     val landMark: TextView = itemView.findViewById(R.id.landMark)
-    val all: TextView = itemView.findViewById(R.id.start)
+    val all: TextView = itemView.findViewById(R.id.state)
     val number: TextView = itemView.findViewById(R.id.phoneNumber)
     val edit: Button = itemView.findViewById(R.id.edit)
     val remove: Button = itemView.findViewById(R.id.remove)

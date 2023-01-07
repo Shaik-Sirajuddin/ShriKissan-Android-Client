@@ -23,30 +23,30 @@ class ChangeLanguage : AppCompatActivity() {
         data = getSharedPreferences(Constants.preference, Context.MODE_PRIVATE)
         val lang = data.getString(Constants.language,"en")?:"en"
         if(lang=="hi"){
-            binding.hindiName.setTextColor(ContextCompat.getColor(this, R.color.greenDark))
-            binding.englishName.setTextColor(ContextCompat.getColor(this, R.color.black))
-            binding.englishTick.visibility = View.GONE
-            binding.hindiTick.visibility = View.VISIBLE
+            binding.hindiLayout.setBackgroundResource(R.color.redlight)
+            binding.englishLayout.setBackgroundResource(R.color.white)
+            setLanguage("hi")
+        }
+        else{
+            binding.hindiLayout.setBackgroundResource(R.color.white)
+            binding.englishLayout.setBackgroundResource(R.color.redlight)
+            setLanguage("en")
         }
         binding.english.setOnClickListener {
-            binding.englishName.setTextColor(ContextCompat.getColor(this, R.color.greenDark))
-            binding.hindiName.setTextColor(ContextCompat.getColor(this, R.color.black))
-            binding.englishTick.visibility = View.VISIBLE
-            binding.hindiTick.visibility = View.GONE
+            binding.hindiLayout.setBackgroundResource(R.color.white)
+            binding.englishLayout.setBackgroundResource(R.color.redlight)
             setLanguage("en")
         }
         binding.hindi.setOnClickListener {
-            binding.hindiName.setTextColor(ContextCompat.getColor(this, R.color.greenDark))
-            binding.englishName.setTextColor(ContextCompat.getColor(this, R.color.black))
-            binding.englishTick.visibility = View.GONE
-            binding.hindiTick.visibility = View.VISIBLE
+            binding.hindiLayout.setBackgroundResource(R.color.redlight)
+            binding.englishLayout.setBackgroundResource(R.color.white)
             setLanguage("hi")
         }
         binding.next.setOnClickListener {
            finish()
         }
     }
-    fun setLanguage(code:String){
+    private fun setLanguage(code:String){
         val res =  resources
         val locale = Locale(code)
         Locale.setDefault(locale)
@@ -56,7 +56,7 @@ class ChangeLanguage : AppCompatActivity() {
         res.updateConfiguration(config,res.displayMetrics)
         data.edit {
             putString(Constants.language,code)
-            apply()
+            commit()
         }
         setStrings()
     }

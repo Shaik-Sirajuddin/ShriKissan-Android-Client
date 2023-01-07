@@ -27,12 +27,16 @@
     <string name="which_language_do_you_prefer">Which language do you prefer?</string>
     <string name="next">Next</string>
     <string name="done">Done</string>
+    <string name="no_category">No categories found</string>
+    <string name="no_orders">You dont have any orders</string>
+    <string name="no_address">You dont have any address saved</string>
+    <string name="empty_cart">Your cart is empty</string>
+    <string name="no_products">No products found</string>
     <string name="network_not_available">Network not available</string>
     <string name="add_address">Add Address</string>
     <string name="edit">Edit</string>
     <string name="remove">Remove</string>
     <string name="save">Save</string>
-    <string name="no_address_added">No Address Added</string>
     <string name="order_invoice">Order Invoice</string>
     <string name="items_price">Items price</string>
     <string name="delivery_charge">Delivery charges</string>
@@ -40,6 +44,44 @@
     <string name="continue_to_payment">Continue to payment</string>
     <string name="select_address">Select Address</string>
     <string name="item_details">Item Details</string>
+    <string name="use_wallet_balance">Use Wallet Balance</string>
+    <string name="wallet">Wallet</string>
+    <string name="order_details">ORDER DETAILS</string>
+    <string name="deliver_to">Deliver To</string>
+    <string name="order_id">Order Id :</string>
+    <string name="ref_id">\"Reference Id : \"</string>
+    <string name="my_orders">My Orders</string>
+    <string name="name">Name</string>
+    <string name="whatsapp_number">WhatsApp Number</string>
+    <string name="topic">Topic</string>
+    <string name="send_call_request">Send Call Request</string>
+    <string name="send_videocall_request">Send VideoCall Request</string>
+    <string name="leave_a_review_here">Leave a review here</string>
+    <string name="review">Review</string>
+    <string name="upload_image">Upload Image</string>
+    <string name="no_items_to_show">No items to show</string>
+    <string name="proceed_to_checkout">Proceed to checkout</string>
+    <string name="flat_area_colony_street_village">Flat,Area,Colony,Street,Village</string>
+    <string name="pin_code">PIN code</string>
+    <string name="landmark_e_g_near_apollo_hospital">Landmark e.g. near Apollo Hospital</string>
+    <string name="town_city">Town/City</string>
+    <string name="fill_details_and_send_contact_request">Fill details and send contact request</string>
+    <string name="send_request">send request</string>
+    <string name="product_description">Product Description</string>
+    <string name="my_name">My Name</string>
+    <string name="city_state_pincode">City, State, Pincode</string>
+    <string name="more">More</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="invite_and_earn">Invite And Earn</string>
+    <string name="change_address">Change Address</string>
+    <string name="change_language">Change Language</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="privac_y_policy">Privacy Policy</string>
+    <string name="log_out">Log Out</string>
+    <string name="english">English</string>
+    <string name="hindi">Hindi</string>
+    <string name="loading">Loading</string>
+    <string name="_100_grams">100 grams</string>
     <string-array name="states">
         <item>Andhra Pradesh</item>
         <item>Arunachal Pradesh</item>
@@ -62,13 +104,18 @@
         <item>Odisha</item>
         <item>Punjab</item>
         <item>Rajasthan</item>
-        <item>Sikkim	Gangtok</item>
+        <item>Sikkim Gangtok</item>
         <item>Tamil Nadu</item>
         <item>Telangana</item>
         <item>Tripura</item>
-        <item> Uttar Pradesh</item>
-        <item> Uttarakhand</item>
+        <item>Uttar Pradesh</item>
+        <item>Uttarakhand</item>
         <item>Gairsain</item>
         <item>West Bengal</item>
+    </string-array>
+    <string-array name="requests">
+        <item>VoiceCallRequest</item>
+        <item>VideoCallRequest</item>
+        <item>Request Soil Test</item>
     </string-array>
 </resources>

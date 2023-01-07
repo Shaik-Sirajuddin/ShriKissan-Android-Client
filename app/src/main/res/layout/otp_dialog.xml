@@ -82,7 +82,7 @@
             android:layout_height="wrap_content"/>
         <TextView
             android:textColor="@color/white"
-            android:text="DONE"
+            android:text="@string/done"
             android:layout_marginStart="5dp"
             android:textSize="18sp"
             android:padding="5dp"
